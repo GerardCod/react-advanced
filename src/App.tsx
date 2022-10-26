@@ -1,14 +1,10 @@
-import { CounterHook } from './bases/CounterHook'
-import { CounterReducerComponent } from './counterModule/CounterReducerComponent'
+import { Navigation } from './routes/Navigation'
 
 function App() {
 
   return (
     <>
-      <h1>React</h1>
-      <hr />
-      <CounterHook />
-      <CounterReducerComponent />
+      <Navigation />
     </>
   )
 }
