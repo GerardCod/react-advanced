@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductCard } from '../components/ProductCard'
+import ProductCard from '../components'
 
 const product = {
   id: '1234324',
