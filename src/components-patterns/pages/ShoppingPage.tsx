@@ -1,51 +1,10 @@
-import React, { useState } from 'react';
 import ProductCard, { ProductButtons, ProductImage, ProductTitle } from '../components';
-import { onChangeArgs, Product } from '../interfaces/interfaces';
+import { products } from '../data/products';
+import { useShoppingCart } from '../hooks/useShoppingCart';
 import '../styles/custom-styles.css';
 
-const product: Product = {
-  id: '1234324',
-  title: 'Coffee Mug',
-  img: './coffee-mug.png'
-}
-
-const product2: Product = {
-  id: '92834',
-  title: 'Coffe Mug - Meme',
-  img: './coffee-mug2.png'
-}
-
-const products: Product[] = [product, product2];
-
-interface ProductInCart extends Product {
-  count: number;
-}
-
-interface ShoppingCart {
-  [key: string]: ProductInCart;
-}
-
 export const ShoppingPage = () => {
-  const [cart, setCart] = useState<ShoppingCart>({});
-
-  const onProductCountChange = ({ product, count }: onChangeArgs) => {
-    setCart(oldShoppingCart => {
-      const productInCart: ProductInCart = oldShoppingCart[product.id] || {...product, count: 0};
-      
-      // Adding a new product to shopping when there is more than 0.
-      if (Math.max(productInCart.count + count, 0) > 0) {
-        productInCart.count += count;
-        return {
-          ...oldShoppingCart,
-          [product.id]: productInCart
-        }
-      }
-
-      // Removing a product from shopping cart.
-      const {[product.id]: toDelete, ...rest} = oldShoppingCart;
-      return rest;
-    });
-  }
+  const { cart, onProductCountChange } = useShoppingCart();
 
   return (
     <div>
