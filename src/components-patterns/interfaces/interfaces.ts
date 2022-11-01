@@ -1,50 +1,51 @@
 import { CSSProperties, ReactElement } from "react";
 
 export interface ProductCardProps {
-    product: Product;
-    children?: ReactElement | ReactElement[];
-    className?: string;
-    style?: CSSProperties;
-    onChange?: (args: onChangeArgs) => void;
+  product: Product;
+  children?: ReactElement | ReactElement[];
+  className?: string;
+  style?: CSSProperties;
+  onChange?: (args: onChangeArgs) => void;
+  value?: number;
 }
 
 export interface ProductImageProps {
-    img?: string;
-    className?: string;
-    style?: CSSProperties
+  img?: string;
+  className?: string;
+  style?: CSSProperties
 }
 
 export interface ProductTitleProps {
-    title?: string;
-    className?: string;
-    style?: CSSProperties;
+  title?: string;
+  className?: string;
+  style?: CSSProperties;
 }
 
 export interface ProductButtonsProps {
-    className?: string;
-    style?: CSSProperties;
+  className?: string;
+  style?: CSSProperties;
 }
 
 export interface ProductContextProps {
-    counter: number;
-    increaseBy: (value: number) => void;
-    product: Product;
+  counter: number;
+  increaseBy: (value: number) => void;
+  product: Product;
 }
 
 export interface Product {
-    id: string;
-    title: string;
-    img?: string;
+  id: string;
+  title: string;
+  img?: string;
 }
 
 export interface ProductCardHOCProps {
-    ({children, product}: ProductCardProps): JSX.Element,
-    Title: (props: ProductTitleProps) => JSX.Element,
-    Image: (props: ProductImageProps) => JSX.Element,
-    Buttons: (props: ProductButtonsProps) => JSX.Element
+  ({ children, product }: ProductCardProps): JSX.Element,
+  Title: (props: ProductTitleProps) => JSX.Element,
+  Image: (props: ProductImageProps) => JSX.Element,
+  Buttons: (props: ProductButtonsProps) => JSX.Element
 }
 
 export interface onChangeArgs {
-    product: Product;
-    count: number;
+  product: Product;
+  count: number;
 }
