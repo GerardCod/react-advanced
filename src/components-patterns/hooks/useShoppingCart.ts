@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { products } from "../data/products";
 import { onChangeArgs, ProductInCart, ShoppingCart } from "../interfaces/interfaces";
 
 export const useShoppingCart = () => {
@@ -23,5 +24,5 @@ export const useShoppingCart = () => {
     });
   }
 
-  return { cart, onProductCountChange }
+  return { cart, onProductCountChange, products }
 }

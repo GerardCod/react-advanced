@@ -1,10 +1,9 @@
 import ProductCard, { ProductButtons, ProductImage, ProductTitle } from '../components';
-import { products } from '../data/products';
 import { useShoppingCart } from '../hooks/useShoppingCart';
 import '../styles/custom-styles.css';
 
 export const ShoppingPage = () => {
-  const { cart, onProductCountChange } = useShoppingCart();
+  const { cart, onProductCountChange, products } = useShoppingCart();
 
   return (
     <div>
