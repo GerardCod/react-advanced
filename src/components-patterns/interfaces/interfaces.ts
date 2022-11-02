@@ -2,11 +2,13 @@ import { CSSProperties, ReactElement } from "react";
 
 export interface ProductCardProps {
   product: Product;
-  children?: ReactElement | ReactElement[];
+  //children?: ReactElement | ReactElement[];
+  children: () => JSX.Element
   className?: string;
   style?: CSSProperties;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
+  initialValues?: InitialValues;
 }
 
 export interface ProductImageProps {
@@ -56,4 +58,9 @@ export interface ProductInCart extends Product {
 
 export interface ShoppingCart {
   [key: string]: ProductInCart;
+}
+
+export interface InitialValues {
+  count?: number;
+  maxCount?: number;
 }
