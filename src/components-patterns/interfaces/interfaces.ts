@@ -3,7 +3,7 @@ import { CSSProperties, ReactElement } from "react";
 export interface ProductCardProps {
   product: Product;
   //children?: ReactElement | ReactElement[];
-  children: () => JSX.Element
+  children: (args: ProductCardHandlers) => JSX.Element
   className?: string;
   style?: CSSProperties;
   onChange?: (args: onChangeArgs) => void;
@@ -32,6 +32,7 @@ export interface ProductContextProps {
   counter: number;
   increaseBy: (value: number) => void;
   product: Product;
+  maxCount?: number;
 }
 
 export interface Product {
@@ -63,4 +64,13 @@ export interface ShoppingCart {
 export interface InitialValues {
   count?: number;
   maxCount?: number;
+}
+
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }

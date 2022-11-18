@@ -19,11 +19,17 @@ export const ShoppingPage = () => {
           }}
           className='bg-dark text-white'>
             {
-              () => (
+              ({ reset, increaseBy, count, isMaxCountReached }) => (
                 <>
                   <ProductImage img={product.img} className='custom-image' style={{boxShadow: '10px 10px 10px rgba(15, 15, 15, .5)'}} />
                   <ProductTitle className='text-bold' />
                   <ProductButtons className='custom-buttons' />
+                  <button onClick={reset}>reset</button>
+                  <button onClick={() => increaseBy(-2)}>-2</button>
+                  {
+                    !isMaxCountReached && <button onClick={() => increaseBy(2)}>+2</button>
+                  }
+                  <span>{count}</span>
                 </>
               )
             }

@@ -61,6 +61,11 @@
 
 .disabled {
   border-color: gray !important;
-  border-left: white !important;
+  border-left: 1px solid white !important;
   color: gray !important;
+}
+
+.disabled:hover {
+  background-color: transparent;
+  cursor: default;
 }
