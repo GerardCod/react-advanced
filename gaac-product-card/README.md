@@ -158,3 +158,29 @@ Change the `alias` to point to where those packages are actually installed. This
 ```
 
 An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+
+## Ejemplo de de uso del componente.
+
+```
+ import ProductCard, { ProductButtons, ProductImage, ProductTitle } from 'do-product-card';
+```
+
+```
+  <ProductCard
+    product={product}
+    initialValues={{
+      count: 4,
+      maxCount: 15,
+    }}
+    className='bg-dark text-white'>
+      {
+        ({ reset, increaseBy, count, isMaxCountReached, maxCount }) => (
+          <>
+            <ProductImage img={product.img} className='custom-image' />
+            <ProductTitle className='text-bold' />
+            <ProductButtons className='custom-buttons' />
+          </>
+        )
+      }
+  </ProductCard>
+```

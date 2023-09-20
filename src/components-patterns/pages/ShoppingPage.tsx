@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductCard, { ProductButtons, ProductImage, ProductTitle } from '../components';
 import { products } from '../data/products';
 import '../styles/custom-styles.css';
@@ -19,7 +20,7 @@ export const ShoppingPage = () => {
           }}
           className='bg-dark text-white'>
             {
-              ({ reset, increaseBy, count, isMaxCountReached }) => (
+              ({ reset, increaseBy, count, isMaxCountReached, maxCount }) => (
                 <>
                   <ProductImage img={product.img} className='custom-image' />
                   <ProductTitle className='text-bold' />
